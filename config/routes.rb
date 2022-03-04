@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'microposts/create'
+  get 'microposts/destroy'
   get 'sessions/new'
   root "application#home"
   get '/signup' => 'users#new'
@@ -8,7 +10,15 @@ Rails.application.routes.draw do
   get '/help' , to: 'static_pages2#help'
   get    '/login',   to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  get '/logout' , to: 'sessions#destroy'
+  get '/escape' , to: 'users#destroy'
+  
+  resources :sessions
+  resources :users do
+    member do
+      get :following, :followers
+    end 
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -17,4 +27,7 @@ Rails.application.routes.draw do
   get 'static_pages2/home'
   get'static_pages2/help'
   resources :users
+  resources :microposts  # , only: [:create, :destroy]
+  # resources : relationships
+
 end

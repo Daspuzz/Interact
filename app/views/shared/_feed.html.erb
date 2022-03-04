@@ -1,0 +1,10 @@
+<% if @feed_items!= nil %>
+<div class="feeds1">
+ <ol class="microposts">
+ <li>
+<%= render @feed_items %>
+</li>
+ </ol>
+ </div>
+<%= will_paginate @feed_items %> 
+<% end %>

@@ -5,7 +5,9 @@ ruby "3.0.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.2"
-
+gem 'will_paginate', '3.3.0'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'faker' , '2.11.0'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -18,6 +20,7 @@ gem 'bootstrap-sass', '3.4.1'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
+
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"

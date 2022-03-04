@@ -1,9 +1,19 @@
 <header class="navbar navbar-fixed-top navbar-inverse"> <div class="container">
-<%= link_to "sample app-6", '#', id: "logo" %> <nav>
+<%= link_to "Interact", '#', id: "logo" %> <nav>
 <ul class="nav navbar-nav navbar-right">
- <li><%= link_to "Home", static_pages2_home_url%></li>
- <li><%= link_to "Help",static_pages2_help_url %></li>
- <li><%= link_to "Login in", "#"%></li>
+  <li><%= link_to "Home", static_pages2_home_url%></li>
+ <li><%= link_to "Help",static_pages2_help_url %></li> 
+  <!--<li><%= link_to "Login in", sessions_new_url%></li>-->
+ <%if logged_in? %> 
+    <% puts "true da dei" %>
+    <li><%= link_to "Users", users_path %></li> 
+    <li><%= link_to "Profile", current_user %></li>
+    <li><%= link_to "Settings", edit_user_path(current_user) %></li>  
+    <li><%= link_to "Log out", '/logout', method: :delete %></li>           
+<%else%>
+    <% puts "false da dei" %>
+    <li><%= link_to "Log in", login_path %></li>
+<% end %>
  </ul>
  </nav>
  </div>
